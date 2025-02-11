@@ -136,3 +136,25 @@ body {
   text-align: center;
   margin-top: 20px;
 }
+body.dark-mode {
+  background-color: #333;
+  color: #aaa;
+}
+
+.task-item {
+  background-color: #444;
+  border-color: #555;
+}
+
+.task-item span {
+  color: #eee;
+}
+
+.add-task-btn, .clear-completed-btn {
+  background-color: #555;
+  color: #eee;
+}
+
+.add-task-btn:hover, .clear-completed-btn:hover {
+  background-color: #666;
+}
