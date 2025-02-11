@@ -8,13 +8,30 @@
 </head>
 <body>
   <div class="container">
-    <h1>GetItDone</h1>
-    <p>Your ultimate productivity companion.</p>
-    <div class="input-container">
-      <input type="text" id="taskInput" placeholder="Enter a task..." />
-      <button id="addTaskBtn">Add Task</button>
-    </div>
-    <ul id="taskList"></ul>
+    <header class="app-header">
+      <h1>GetItDone</h1>
+      <p>Your ultimate productivity companion.</p>
+      <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+    </header>
+
+    <section class="task-input-section">
+      <input type="text" id="taskInput" placeholder="What needs to be done?" />
+      <button id="addTaskBtn" class="add-task-btn">+</button>
+    </section>
+
+    <section class="task-list-section">
+      <div class="filter-options">
+        <button data-filter="all">All</button>
+        <button data-filter="pending">Pending</button>
+        <button data-filter="completed">Completed</button>
+      </div>
+      <ul id="taskList" class="task-list"></ul>
+      <button id="clearCompletedBtn" class="clear-completed-btn">Clear Completed</button>
+    </section>
+
+    <footer class="app-footer">
+      <p id="taskStats">3 tasks remaining</p>
+    </footer>
   </div>
 
   <script src="script.js"></script>
