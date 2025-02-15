@@ -6,6 +6,7 @@ const addTaskBtn = document.getElementById('addTaskBtn');
 const taskList = document.getElementById('taskList');
 const clearCompletedBtn = document.getElementById('clearCompletedBtn');
 const darkModeToggle = document.getElementById('darkModeToggle');
+const filterOptions = document.querySelectorAll('.filter-options button');
 
 // Load tasks from localStorage on page load
 window.addEventListener('DOMContentLoaded', () => {
@@ -90,4 +91,26 @@ clearCompletedBtn.addEventListener('click', () => {
 // Dark mode toggle
 darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
+});
+
+// Filter tasks based on selected option
+function filterTasks(filterType) {
+  const tasks = taskList.querySelectorAll('.task-item');
+  tasks.forEach(task => {
+    if (filterType === 'all') {
+      task.style.display = 'flex'; // Show all tasks
+    } else if (filterType === 'completed') {
+      task.style.display = task.classList.contains('completed') ? 'flex' : 'none'; // Show only completed tasks
+    } else if (filterType === 'pending') {
+      task.style.display = !task.classList.contains('completed') ? 'flex' : 'none'; // Show only pending tasks
+    }
+  });
+}
+
+// Add event listeners to filter buttons
+filterOptions.forEach(button => {
+  button.addEventListener('click', () => {
+    const filterType = button.dataset.filter;
+    filterTasks(filterType);
+  });
 });
